@@ -57,6 +57,14 @@ void unicode2gbk(uint8_t *src,uint8_t *dst);
 void | 无
 
 ## 4.注意事项
+**Chinese_font_library**基于fal软件包实现，使用之前需要做一些准备工作：
+* 因为要使用fal读外部Flash，所以要对Flash进行移植工作，参考：[Flash 设备及分区移植示例](https://github.com/RT-Thread-packages/fal/blob/master/samples/porting/README.md)
+* 在fal_cfg.h的分区表中为外部Flash划出"font"分区，例：
+```c
+{FAL_PART_MAGIC_WROD,       "font",    "nor_flash",            (512 + 1024 + 512) * 1024,  7 * 1024 * 1024, 0}
+```
+* 将字库文件烧写进"font"分区。
+* 使用前需调用fal_init()初始化fal库。
 
 ## 5.联系方式
 * 维护：lxzzzzzxl

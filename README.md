@@ -3,12 +3,11 @@
 Chinese font library用于解决嵌入式开发中需要在LCD上显示中文的问题，该软件包基于FAL软件包的功能实现，通过访问存储在外部spi flash的字库文件，实现汉字的显示。同时提供 utf-8 -> unicode -> gbk 的转换函数接口，以应用于网络数据场景。更多应用场景(例：GSM中文短信等)有待实现。
 ### 1.1目录结构
 名称 | 说明   
-:-|:-
+:----------|:----------
 docs | 文档
 src | 源码 
 inc | 头文件 
 examples | 示例 
-port | 移植文件
 
 ### 1.2许可证
 
@@ -18,6 +17,44 @@ port | 移植文件
 ## 2.获取方式
 
 ## 3.使用方式
+### 3.1 标准API
+#### 在指定位置显示字符串
+```c
+void show_str(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t *str, uint8_t size);
+```
+参数 | 描述   
+:----------|:----------
+x | 字符串起始x坐标
+y | 字符串起始y坐标 
+width | 字符串所占宽度 
+height | 字符串所占高度 
+*str | 字符串指针
+size | 字体大小
+**返回** | **描述**   
+void | 无
+
+### 3.2 网络应用场景API(编码转换)
+#### utf-8转unicode
+```c
+int utf82unicode(char* pInput, char* pOutput)
+```
+参数 | 描述   
+:----------|:----------
+*pInput | utf8字符指针
+*pOutput | unicode字符指针 
+**返回** | **描述**   
+int | unicode字符大小
+
+#### unicode转gbk
+```c
+void unicode2gbk(uint8_t *src,uint8_t *dst);
+```
+参数 | 描述   
+:----------|:----------
+*src | unicode字符指针
+*dst | gbk字符指针 
+**返回** | **描述**   
+void | 无
 
 ## 4.注意事项
 

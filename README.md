@@ -17,7 +17,10 @@ port | 移植文件
 * RT-Thread FAL软件包
 ## 2.获取方式
 
-## 3.注意事项
-## 4.联系方式
-* 维护：霹雳大乌龙
-* 主页：
+## 3.使用方式
+
+## 4.注意事项
+
+## 5.联系方式
+* 维护：lxzzzzzxl
+* 主页：https://github.com/lxzzzzzxl/Chinese_font_library

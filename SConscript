@@ -1,5 +1,6 @@
 # RT-Thread building script for bridge
-
+Import('RTT_ROOT')
+Import('rtconfig')
 import os
 from building import *
 

@@ -4,7 +4,6 @@ Chinese font library用于解决嵌入式开发中需要在LCD上显示中文的
 ### 1.1目录结构
 名称 | 说明   
 :----------|:----------
-docs | 文档
 src | 源码 
 inc | 头文件 
 examples | 示例 
@@ -47,12 +46,12 @@ int | unicode字符大小
 
 #### unicode转gbk
 ```c
-void unicode2gbk(uint8_t *src,uint8_t *dst);
+void unicode2gbk(uint8_t *pInput, uint8_t *pOutput);
 ```
 参数 | 描述   
 :----------|:----------
-*src | unicode字符指针
-*dst | gbk字符指针 
+*pInput | unicode字符指针
+*pOutput | gbk字符指针 
 **返回** | **描述**   
 void | 无
 

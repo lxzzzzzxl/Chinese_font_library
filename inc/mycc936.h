@@ -2,7 +2,7 @@
 
 #define swap16(x) (x&0XFF)<<8|(x&0XFF00)>>8	//高低字节交换宏定义
 
-int Utf8ToUnicode(char* pInput, char* pOutput);
+int Utf82Unicode(char* pInput, char* pOutput);
 
 unsigned short myff_convert (	/* Converted code, 0 means conversion error */
 	unsigned short	src,	/* Character code to be converted */

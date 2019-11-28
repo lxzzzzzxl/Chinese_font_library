@@ -5,7 +5,7 @@
 
 extern _font_info ftinfo;
 
-int Utf8ToUnicode(char* pInput, char* pOutput)
+int Utf82Unicode(char* pInput, char* pOutput)
 {
 	int outputSize = 0; //记录转换后的Unicode字符串的字节数
  *pOutput = 0;

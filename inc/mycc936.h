@@ -9,4 +9,4 @@ unsigned short myff_convert (	/* Converted code, 0 means conversion error */
 	unsigned int	dir		/* 0: Unicode to OEMCP, 1: OEMCP to Unicode */
 );
 	
-void unicode2gbk(uint8_t *src,uint8_t *dst);
+void unicode2gbk(uint8_t *pInput,uint8_t *pOutput);

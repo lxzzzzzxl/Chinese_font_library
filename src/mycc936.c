@@ -103,17 +103,17 @@ unsigned short myff_convert (	/* Converted code, 0 means conversion error */
 	return c;
 }		   
 
-void unicode2gbk(uint8_t *src,uint8_t *dst)
+void unicode2gbk(uint8_t *pInput,uint8_t *pOutput)
 {
 	uint16_t temp; 
 	uint8_t buf[2];
-	while(*src)
+	while(*pInput)
 	{
-			buf[0]=*src++;
-			buf[1]=*src++;
+			buf[0]=*pInput++;
+			buf[1]=*pInput++;
  			temp=(uint16_t)myff_convert((unsigned short)*(uint16_t*)buf,0);
-			if(temp<0X80){*dst=temp;dst++;}
-			else {*(uint16_t*)dst=swap16(temp);dst+=2;}
+			if(temp<0X80){*pOutput=temp;pOutput++;}
+			else {*(uint16_t*)pOutput=swap16(temp);pOutput+=2;}
 		} 
-	*dst=0;//添加结束符
+	*pOutput=0;//添加结束符
 }

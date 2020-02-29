@@ -13,6 +13,7 @@ examples | 示例
 ### 1.3依赖
 * RT-Thread SUFD组件
 * RT-Thread FAL软件包
+* 存储在外部spi flash的字库文件
 ## 2.获取方式
 
 ## 3.使用方式
@@ -63,8 +64,23 @@ void | 无
 {FAL_PART_MAGIC_WROD,       "font",    "nor_flash",            (512 + 1024 + 512) * 1024,  7 * 1024 * 1024, 0}
 ```
 * 将字库文件烧写进"font"分区。
+* 需要根据你的字库文件结构及位置修改cn_port.c（需要对应你的font分区），我这里使用的是正点原子的字库。
+```c
+    _font_info ftinfo =
+    {
+        .ugbkaddr = 0x0000000+sizeof(ftinfo),
+        .ugbksize = 174344,
+        .f12addr=0x0002A908+sizeof(ftinfo),
+        .gbk12size=574560,
+        .f16addr = 0x000B6D68+sizeof(ftinfo),
+        .gbk16size = 766080,
+        .f24addr = 0x00171DE8+sizeof(ftinfo),
+        .gbk24size = 1723680,
+        .f32addr = 0x00316B08+sizeof(ftinfo),
+        .gbk32size = 3064320
+    };
+```
 * 使用前需调用fal_init()初始化fal库。
-
 ## 5.联系方式
 * 维护：lxzzzzzxl
 * 主页：https://github.com/lxzzzzzxl/Chinese_font_library
